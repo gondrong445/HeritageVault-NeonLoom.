@@ -1,0 +1,14 @@
+{
+  "canisters": {
+    "HeritageVault": {
+      "main": "smart-contract/HeritageVault.mo",
+      "type": "motoko"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
