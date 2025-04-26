@@ -2,7 +2,7 @@
   import { ambilKarya, verifikasiKarya } from '../../lib/api.js';
   let karyaId = '';
   let karya = null;
-  let isAdmin = false; // Ganti dengan logika autentikasi admin
+  let isAdmin = false;
 
   async function handleSearch() {
     const result = await ambilKarya(parseInt(karyaId));
@@ -22,15 +22,15 @@
   }
 </script>
 
-<main class="p-10 max-w-xl mx-auto">
-  <h1 class="text-3xl mb-6 font-bold text-white">Verifikasi Karya</h1>
-  <div class="mb-4">
+<main class="p-10 max-w-xl mx-auto relative z-10">
+  <h1 class="text-3xl md:text-4xl mb-6 font-bold text-white text-center">Verifikasi Karya</h1>
+  <div class="bg-gray-800 p-6 rounded-lg border border-neon-blue shadow-xl mb-8">
     <input class="input" placeholder="Masukkan ID Karya" bind:value={karyaId} />
-    <button class="btn-primary mt-2" on:click={handleSearch}>Cari</button>
+    <button class="btn-primary w-full" on:click={handleSearch}>Cari</button>
   </div>
 
   {#if karya}
-    <div class="bg-gray-800 rounded shadow p-4">
+    <div class="card">
       <h2 class="text-xl font-bold">{karya.judul}</h2>
       <p class="text-gray-400">Daerah: {karya.daerah}</p>
       <p class="text-gray-400">Hash: {karya.id}</p>
@@ -42,9 +42,9 @@
         {/if}
       </p>
       {#if isAdmin && !karya.sudahTerverifikasi}
-        <button class="btn-primary mt-4" on:click={handleVerify}>Verifikasi Sekarang</button>
+        <button class="btn-primary mt-4 w-full" on:click={handleVerify}>Verifikasi Sekarang</button>
       {/if}
-      <a href={`/gallery/${karya.id}`} class="block mt-2 text-neon-blue">Lihat NFT</a>
+      <a href={`/gallery/${karya.id}`} class="block mt-2 text-neon-blue text-center">Lihat NFT</a>
     </div>
   {/if}
 </main>
