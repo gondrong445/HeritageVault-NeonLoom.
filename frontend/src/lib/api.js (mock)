@@ -1,0 +1,25 @@
+export async function unggahKarya(judul, cerita, gambar, daerah) {
+  console.log("Mock upload:", { judul, cerita, gambar, daerah });
+  return 1; // Mock ID
+}
+
+export async function verifikasiKarya(id) {
+  console.log("Mock verify:", id);
+  return true;
+}
+
+export async function donasiKeKarya(id, jumlah) {
+  console.log("Mock donate:", id, jumlah);
+  return true;
+}
+
+export async function ambilSemuaKarya() {
+  return [
+    { id: 1, judul: "Batik Kawung", cerita: "Batik klasik dari Yogyakarta", daerah: "Yogyakarta", sudahTerverifikasi: true, totalDonasi: 30 },
+    { id: 2, judul: "Batik Parang", cerita: "Motif tradisional Jawa", daerah: "Solo", sudahTerverifikasi: false, totalDonasi: 10 }
+  ];
+}
+
+export async function ambilKarya(id) {
+  return { id, judul: "Batik Kawung", cerita: "Batik klasik dari Yogyakarta", daerah: "Yogyakarta", sudahTerverifikasi: true, totalDonasi: 30 };
+}
